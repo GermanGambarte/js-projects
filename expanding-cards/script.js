@@ -1,11 +1,19 @@
-const panels = document.querySelectorAll('.panel')
+const container = document.querySelector('.container')
+console.log(container.children)
 
-panels.forEach((panel) => {
-  panel.addEventListener('click', () => {
+container.addEventListener('click', ({target}) => {
+  const isActive = target.classList.contains('active')
+  if(target.classList.contains('container') || isActive) return
+  if(target.classList.contains('panel-title')) {
     removeActiveClass()
-  })
+    return target.parentElement.classList.add('active')
+  }
+  removeActiveClass()
+  target.classList.add('active')
 })
 
 function removeActiveClass() {
-  document.querySelector('.active').classList.remove('active')
+  Array.from(container.children).forEach(child =>{
+    child.classList.remove('active')
+  })
 }
