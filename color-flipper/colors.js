@@ -1,4 +1,4 @@
-export const named = [
+export const NAMED = [
   'aliceblue',
   'antiquewhite',
   'aqua',
